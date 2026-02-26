@@ -139,11 +139,12 @@ button, input{
 }
 .nav__menu a{
   display:inline-flex;
-  padding:10px 12px;
+  padding:10px 4px;
   border-radius:12px;
   color:var(--muted);
   border:1px solid transparent;
   transition:all .18s ease;
+  white-space: nowrap;
 }
 .nav__menu a:hover{
   color:var(--text);
@@ -184,8 +185,8 @@ button, input{
   outline-offset:2px;
 }
 .btn--primary{
-  background:linear-gradient(180deg, rgba(255,106,0,.95), rgba(255,106,0,.78));
-  border-color:rgba(255,106,0,.55);
+  background: linear-gradient(240deg, rgba(151, 43, 0, 0.95), rgba(255, 152, 78, 0.78));
+  border-color:rgba(117, 49, 0, 0.55);
   box-shadow:0 12px 40px rgba(255,106,0,.18);
 }
 .btn--primary:hover{
@@ -231,6 +232,9 @@ button, input{
   margin:0 0 18px;
   color:var(--muted);
   font-size:1.02rem;
+}
+.accent-text{
+  font-size: large;
 }
 .hero__cta{
   display:flex;
@@ -584,9 +588,9 @@ button, input{
   z-index:60;
   padding:12px 14px;
   border-radius:18px;
-  border:1px solid rgba(255,106,0,.40);
-  background: linear-gradient(180deg, rgba(255,106,0,.95), rgba(255,106,0,.80));
-  box-shadow: 0 18px 60px rgba(255,106,0,.18);
+  border: 1px solid rgba(8, 102, 0, 0.4);
+  background: linear-gradient(180deg, rgba(0, 125, 57, 0.95), rgba(0, 172, 57, 0.8));
+  box-shadow: 0 18px 60px rgba(30, 255, 0, 0.18);
   justify-content:center;
   gap:10px;
   align-items:center;
@@ -613,16 +617,27 @@ button, input{
 @media (max-width: 780px){
   .header__inner{ padding:12px 0; }
   .brand{ min-width:auto; }
-  .header__actions{ display:none; } /* موبایل: فقط لوگو + منو */
 
-  .nav{ justify-content:flex-start; }
+ 
+  .header__actions{ display:none; }
+
+
+  .nav{
+    flex: 0 0 auto;
+    min-width: auto;
+    justify-content: flex-start;
+    margin-right: auto; 
+  }
+
   .nav__toggle{ display:inline-flex; }
 
+  
   .nav__menu{
     position:fixed;
     top:64px;
-    left:14px;
-    right:14px;
+    left:14px;           
+    right:auto;        
+    width:min(360px, calc(100% - 28px));
     border-radius:20px;
     border:1px solid rgba(255,106,0,.20);
     background: rgba(11,15,20,.75);
@@ -639,8 +654,9 @@ button, input{
     width:100%;
     justify-content:space-between;
     padding:12px 12px;
+    white-space: nowrap;
   }
 
   .mobile-call{ display:flex; }
-  body{ padding-bottom:76px; } /* جا برای دکمه تماس */
+  body{ padding-bottom:76px; }
 }

@@ -45,7 +45,7 @@
     });
   }
 
-  // Warranty form behavior
+   // Warranty form behavior
   const form = document.getElementById("warrantyForm");
   const input = document.getElementById("warrantyInput");
   const errorBox = document.getElementById("warrantyError");
@@ -59,14 +59,23 @@
 
       errorBox.hidden = false;
 
- 
+    
+      const alertText = errorBox.querySelector(".alert__text");
+
+      if (alertText && !alertText.querySelector(".strong")) {
+        const strongMessage = document.createElement("p");
+        strongMessage.className = "strong";
+        strongMessage.textContent = "شماره وارد شده اشتباه می‌باشد.";
+
+        alertText.prepend(strongMessage);
+      }
+
       if (!isValid) {
-        // Keep same message; just ensure focus
         input.focus();
         return;
       }
 
-      // Slight delay for natural UX (no heavy work)
+      // Slight delay for natural UX
       form.classList.add("is-busy");
       window.setTimeout(() => {
         form.classList.remove("is-busy");
